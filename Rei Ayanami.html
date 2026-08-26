@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayanami Rei - Official Collection</title>
+    <!-- Vinculación con el archivo de estilos externo -->
+    <link rel="stylesheet" href="rei info.css">
+</head>
+<body>
+
+    <!-- REPRODUCTOR DE AUDIO OCULTO -->
+    <audio id="musicaFondo" loop>
+        <source src="musica/audio.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- REPRODUCTOR DE MÚSICA PREMIUM (ESTILO NERV FLOTANTE) -->
+    <div class="reproductor-premium">
+        <div class="ecualizador" id="equaVisual">
+            <span class="barra"></span>
+            <span class="barra"></span>
+            <span class="barra"></span>
+            <span class="barra"></span>
+        </div>
+        <div class="info-pista">
+            <span class="titulo-audio">NEON GENESIS EVANGELION// FLY ME TO THE MOON SOUNDTRACK</span>
+            <span class="estado-audio" id="txtEstado">SYSTEM OFF</span>
+        </div>
+        <button class="btn-play-pause" id="controlMusica" onclick="alternarMusica()">▶</button>
+    </div>
+
+    <!-- BANNER INTEGRAL CON MÁSCARA ALFA -->
+    <div class="banner-contenedor">
+        <div class="banner-imagen-fondo"></div>
+        <div class="banner-contenido">
+            <span>Limited Concept Capsule</span>
+            <h1>REI <b>AYANAMI</b></h1>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL DE LA WEB -->
+    <div class="pagina">
+
+        <!-- ESCENARIO COMPLETO CON LAS 6 CAJAS EN SEMICÍRCULO -->
+        <div class="escenario-composicion">
+            <div class="caja caja-1"><img src="Rei4.jpg" alt="Look 1"></div>
+            <div class="caja caja-2"><img src="Rei5.jpg" alt="Look 2"></div>
+            <div class="caja caja-3"><img src="Rei6.jpg" alt="Look 3"></div>
+            <div class="caja caja-4"><img src="Rei7.jpg" alt="Look 4"></div>
+            <div class="caja caja-5"><img src="Rei8.jpg" alt="Look 5"></div>
+            <div class="caja caja-6"><img src="Rei9.jpg" alt="Look 6"></div>
+
+            <!-- FIGURA FIJA DE REI AYANAMI -->
+            <div class="columna-rei">
+                <img src="Rei.png" class="rei-render" alt="Rei Ayanami">
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE RESUMEN AL FINAL -->
+        <div class="resumen-container">
+            <h2>Profile Overview // First Child</h2>
+            <p>
+                Rei Ayanami es uno de los iconos visuales y narrativos más influyentes de la animación contemporánea. Designada por NERV como la Primera Elegida para pilotar la Unidad Evangelion-00, su misteriosa naturaleza y silencio absoluto marcan la atmósfera psicológica de Neon Genesis Evangelion. Con un diseño conceptual que juega entre la fragilidad y la trascendencia, su evolución cuestiona la identidad humana y redefine el desenlace de la historia.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- LÓGICA DE JAVASCRIPT PARA EL AUDIO -->
+    <script>
+        function alternarMusica() {
+            var audio = document.getElementById("musicaFondo");
+            var boton = document.getElementById("controlMusica");
+            var equa = document.getElementById("equaVisual");
+            var estado = document.getElementById("txtEstado");
+            
+            if (audio.paused) {
+                audio.play();
+                boton.innerHTML = "⏸"; 
+                equa.classList.add("sonando"); 
+                estado.innerHTML = "AUDIO ACTIVE";
+                estado.style.color = "#aedbf2";
+            } else {
+                audio.pause();
+                boton.innerHTML = "▶"; 
+                equa.classList.remove("sonando"); 
+                estado.innerHTML = "SYSTEM PAUSED";
+                estado.style.color = "rgba(255, 255, 255, 0.4)";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
